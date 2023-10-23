@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function Myform() {
-    const [text, settext] = useState('enter your text')
+    const [text, settext] = useState('')
     const handleclick = () => {
         let newtext = text.toUpperCase();
         settext(newtext);
@@ -17,14 +17,15 @@ function Myform() {
     const handleonchange = (event) => {
         console.log('hgnfytdtfg');
         settext(event.target.value)
+
     }
     return (
         <div>
             <div className="container my-5">
 
                 <div className="mb-3">
-                    <label htmlFor="mytext" className="form-label">Example textarea</label>
-                    <textarea className="form-control" value={text} onChange={handleonchange} id="mytext" rows="3"></textarea>
+                    {/* <label htmlFor="mytext" className="form-label">Example textarea</label> */}
+                    <textarea className="form-control" value={text} onChange={handleonchange} onKeyUp={handleclick} id="mytext" rows="3"></textarea>
                 </div>
                 <button className="btn btn-primary mx-3" onClick={handleclick}>Convert to uppercase</button>
                 <button className="btn btn-primary mx-3" onClick={handlelower}>Convert to lowercase</button>
